@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AudioMind: MLLM Reasoning and Preference Learning for Video-to-Audio Generation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="helper.js" defer></script>
+    <style>
+      td {
+        vertical-align: middle;
+        min-width: 200px;
+      }
+      audio {
+        width: 20vw;
+        min-width: 100px;
+        max-width: 220px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+      <div class="text-center">
+        <h3>AudioMind: MLLM Reasoning and Preference Learning for Video-to-Audio Generation</h3>
+
+            <p class="mt-3">
+    </p>
+        
+        <!-- <p class="lead fw-bold">
+          |<a
+            href="https://arxiv.org/abs/2302.03540"
+            class="btn border-white bg-white fw-bold"
+            >paper</a
+          >|
+        </p> -->
+        <p>
+
+
+        </p>
+        <!-- <p class="fst-italic mb-0">
+          Eugene Kharitonov, Damien Vincent,  Zalán Borsos, Raphaël Marinier, Sertan Girgin, Olivier Pietquin,
+          Matt Sharifi, Marco Tagliasacchi, Neil Zeghidour
+        </p> -->
+        <p><b>Anonymous Authors</b></p>
+      </div>
+      <p>
+        <b>Abstract.</b>  
+        Video-text-to-audio (VT2A) generation aims to synthesize realistic audio conditioned on video and text, yet two persistent challenges remain: semantic alignment--reasoning from acoustic hints and following structured audio-visual relation descriptions; and temporal alignment--achieving robust audio-visual synchronization. We propose AudioMind, a generative model that addresses these challenges through multimodal large language model (MLLM) reasoning and preference learning. For semantic understanding, we construct VGGSound-Think, a tri-modal dataset that augments VGGSound with acoustic hints and structured audio-visual relation annotations, and leverage an MLLM backbone with learnable queries to bridge multimodal understanding and flow-matching generation. To further enhance temporal and semantic alignment, we introduce multi-dimensional Flow-GRPO, a preference post-training strategy for flow-matching models. We include Best-of-N reranked results as AudioMid-BoN.
+      </p>
+    </div>
+
+
+    <div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+      <h2 id="model-overview" style="text-align: center;">Overview</h2>
+      <div>
+      <p><br/></p>
+      <p style="text-align: center;">
+          <img src="arch.png" height="100" width="800" class="img-fluid">
+      </p>
+      <p><br/></p>
+    </div>
+  
+  </div>
+
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+    <h2 id="table-of-content" style="text-align: left;">Table of Contents</h2>
+    <div>
+    <p style="text-align: left;">
+    <ul style="list-style: outside none none !important;">
+       <li><a href="#table1-vggsound" class="btn border-white bg-white fw-bold">Video/Text-to-Audio Generation</a></li>
+       <li><a href="#table1-landscape" class="btn border-white bg-white fw-bold">Text-to-Audio Generation</a></li>
+       <li><a href="#table2-think" class="btn border-white bg-white fw-bold">Video/Text-to-Audio Reasoning Generation</a></li>
+       <li><a href="#table2-yt8m" class="btn border-white bg-white fw-bold">MovieGen Audio Bench</a></li>
+       <!-- <li><a href="#table2-landscape" class="btn border-white bg-white fw-bold">Efficient Fine-tuning (Landscape)</a></li> -->
+       <!-- <li><a href="#table3-vggsound" class="btn border-white bg-white fw-bold">Video-gudied audio interpolation</a></li> -->
+       <!-- <li><a href="#table4-vggsound" class="btn border-white bg-white fw-bold">Ablation studies</a></li> -->
+       
+    </ul>
+    </p>
+  </div>
+</div>
+    <!-- table1-vggsound -->
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+      <h3>Video-to-Audio Generation (VGGSound)<a id="table1-vggsound"/></h3>
+      <div class="container pt-3 table-responsive">
+        <table
+          class="table table-hover"
+          id="vggsound1-table"
+        >
+          <thead>
+            <tr>
+              <th style="text-align:center">Text</th>
+              <th style="text-align: center">Diff-foley</th>
+              <th style="text-align: center">ThinkSound</th>
+              <th style="text-align: center">MMAudio</th>
+              <th style="text-align: center">Frieren</th>
+              <th style="text-align: center">V2A-Mapper</th>
+              <th style="text-align: center">AudioMid</th>
+              <th style="text-align: center">AudioMid-BoN</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+             <tr height=100px>  <td></td>  <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- table1-landscape -->
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+      <h3>Text-to-Audio Generation<a id="table1-landscape"/></h3>
+      <div class="container pt-3 table-responsive">
+        <table
+          class="table table-hover"
+          id="landscape1-table"
+        >
+          <thead>
+            <tr>
+              <th style="text-align: center">Text</th>
+              <!-- <th style="text-align: center">AudioLDM2</th> -->
+              <th style="text-align: center">Make-An-Audio 2</th>
+              <th style="text-align: center">Tango2</th>
+              <th style="text-align: center">SoundCTM</th>
+              <th style="text-align: center">AudioMid</th>
+              <th style="text-align: center">AudioMid-BoN</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr height=100px><td></td> <td></td> <td></td> <td></td> <td></td>  <td></td> </tr>
+             <tr height=100px><td></td> <td></td> <td></td> <td></td> <td></td>  <td></td> </tr>
+             <tr height=100px><td></td> <td></td> <td></td> <td></td> <td></td>  <td></td> </tr>
+             <tr height=100px><td></td> <td></td> <td></td> <td></td> <td></td>  <td></td> </tr>
+             <tr height=100px><td></td> <td></td> <td></td> <td></td> <td></td>  <td></td> </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- table2-think -->
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+      <h3>Video-to-Audio Reasoning Generation <a id="table2-think"></a></h3>
+    
+      <style>
+        /* 让外层容器真正可横向滚动，并将滚动条加粗 */
+        #think2-wrap {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        #think2-wrap::-webkit-scrollbar { height: 12px; }
+        #think2-wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,.35); border-radius: 6px; }
+        #think2-wrap::-webkit-scrollbar-track { background: rgba(0,0,0,.08); }
+    
+        /* 表格列宽：用像素保证总宽度 > 容器宽度，从而可滚动 */
+        #think-table2 { 
+          table-layout: fixed; 
+          min-width: 2070px;    /* 根据下面每列宽度之和设置；可再调大/小 */
+        }
+        /* 列宽：第一列更宽，后面每列 320px（你可按需改） */
+        #think-table2 col.col-text   { width: 560px; }  /* Text 列 */
+        #think-table2 col.col-model  { width: 320px; }  /* 各模型列 */
+    
+        /* 文本列换行策略，避免超长词撑破 */
+        #think-table2 th:first-child,
+        #think-table2 td:first-child {
+          white-space: normal;
+          word-break: break-word;
+        }
+    
+        /* 播放器铺满单元格 */
+        #think-table2 video, #think-table2 audio { width: 100%; display: block; }
+      </style>
+    
+      <div class="container pt-3" id="think2-wrap">
+        <table class="table table-hover" id="think-table2">
+          <!-- 固定列宽（与上面 CSS 匹配） -->
+          <colgroup>
+            <col class="col-text">      <!-- Text -->
+            <col class="col-model">     <!-- DeepSound-R1 -->
+            <col class="col-model">     <!-- ThinkSound -->
+            <col class="col-model">     <!-- MMAudio -->
+            <col class="col-model">     <!-- AudioMid -->
+            <col class="col-model">     <!-- AudioMid-BoN -->
+          </colgroup>
+    
+          <thead>
+            <tr>
+              <th style="text-align:center">Text</th>
+              <th style="text-align:center">DeepSound-R1</th>
+              <th style="text-align:center">ThinkSound</th>
+              <th style="text-align:center">MMAudio</th>
+              <th style="text-align:center">AudioMid</th>
+              <th style="text-align:center">AudioMid-BoN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr height="100px"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+            <!-- table1-vggsound -->
+    <div class="container shadow p-5 mb-5 bg-white rounded">
+      <h3>Video-to-Audio Generation (MovieGen-Bench)<a id="table4-moviegen"/></h3>
+      <div class="container pt-3 table-responsive">
+        <table
+          class="table table-hover"
+          id="moviegen-table4"
+        >
+          <thead>
+            <tr>
+              <th style="text-align:center">Text</th>
+              <th style="text-align: center">AudioMid</th>
+              <th style="text-align: center">AudioMid-BoN</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr height=100px>  <td></td>  <td></td><td></td></tr>
+             <tr height=100px>  <td></td>  <td></td><td></td></tr>
+             <tr height=100px>  <td></td>  <td></td><td></td></tr>
+             <tr height=100px>  <td></td>  <td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+        
+  </body>
+</html>
